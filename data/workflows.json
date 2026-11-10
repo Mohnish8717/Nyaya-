@@ -1,0 +1,95 @@
+{
+  "version": "1.0.0",
+  "note": "Finite-state intake workflows. The model phrases turns and may request a transition with the advance_workflow tool; this file decides which transitions exist, which facts each step requires, and which curated procedure the step ends at. Nothing here is generated at runtime.",
+  "workflows": [
+    {
+      "id": "unpaid-wages",
+      "label": "Unpaid wages intake",
+      "procedure_id": "unpaid-wages",
+      "start": "amount",
+      "nodes": [
+        {
+          "id": "amount",
+          "type": "conversation",
+          "ask": "How much is still unpaid, and for which months?",
+          "requires": ["amount", "when"],
+          "next": "employer"
+        },
+        {
+          "id": "employer",
+          "type": "conversation",
+          "ask": "Who do you work for — a company or contractor, or a household?",
+          "requires": ["recipient"],
+          "transitions": [
+            {
+              "when": {"slot": "recipient", "contains": ["household", "home", "domestic", "family", "ghar"]},
+              "to": "household"
+            },
+            {"to": "employer-proof"}
+          ]
+        },
+        {
+          "id": "household",
+          "type": "conversation",
+          "ask": "Do you work for more than one household, or through an agency?",
+          "requires": ["stage"],
+          "note": "Domestic workers are covered by different state rules than factory or office employees, so this changes which office to approach.",
+          "next": "procedure"
+        },
+        {
+          "id": "employer-proof",
+          "type": "conversation",
+          "ask": "Do you have anything in writing — an appointment letter, salary slips, or messages about the pay?",
+          "requires": ["notice_or_order"],
+          "next": "procedure"
+        },
+        {
+          "id": "procedure",
+          "type": "tool",
+          "tool": "get_procedure",
+          "arguments": {"procedure_id": "unpaid-wages"},
+          "next": "done"
+        },
+        {"id": "done", "type": "end"}
+      ]
+    },
+    {
+      "id": "police-fir",
+      "label": "Police refused to register an FIR",
+      "procedure_id": "police-fir",
+      "start": "refusal",
+      "nodes": [
+        {
+          "id": "refusal",
+          "type": "conversation",
+          "ask": "Did the police refuse in writing, or only verbally?",
+          "requires": ["stage"],
+          "next": "written"
+        },
+        {
+          "id": "written",
+          "type": "conversation",
+          "ask": "Do you have the written refusal, or a receipt or diary number for the complaint?",
+          "requires": ["notice_or_order"],
+          "next": "escalate"
+        },
+        {
+          "id": "escalate",
+          "type": "conversation",
+          "ask": "Which police station and district is this, and when did you go?",
+          "requires": ["jurisdiction", "when"],
+          "note": "A written refusal is the strongest basis for escalating to the Superintendent of Police or the Magistrate.",
+          "next": "procedure"
+        },
+        {
+          "id": "procedure",
+          "type": "tool",
+          "tool": "get_procedure",
+          "arguments": {"procedure_id": "police-fir"},
+          "next": "done"
+        },
+        {"id": "done", "type": "end"}
+      ]
+    }
+  ]
+}

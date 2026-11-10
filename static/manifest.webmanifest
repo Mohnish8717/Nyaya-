@@ -1,0 +1,35 @@
+{
+  "id": "/",
+  "name": "Nyaya — Citizen Legal Advocate",
+  "short_name": "Nyaya",
+  "description": "Voice-first legal information for India: speak in any language, get sources, and see the next step.",
+  "lang": "en-IN",
+  "dir": "ltr",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui", "browser"],
+  "orientation": "any",
+  "background_color": "#14100d",
+  "theme_color": "#14100d",
+  "categories": ["legal", "education", "reference"],
+  "icons": [
+    { "src": "/static/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/static/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/static/icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    {
+      "name": "New conversation",
+      "short_name": "New",
+      "url": "/?new=1",
+      "icons": [{ "src": "/static/icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Guides and sources",
+      "short_name": "Guides",
+      "url": "/?sources=1",
+      "icons": [{ "src": "/static/icons/icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}

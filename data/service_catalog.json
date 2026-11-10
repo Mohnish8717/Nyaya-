@@ -1,0 +1,22 @@
+{
+  "version": "2.0.0",
+  "purpose": "Capability boundaries for a model-led, multilingual legal information assistant. These entries are tool scope and examples, not scripts, required steps, or predefined answers.",
+  "capabilities": [
+    {"id":"explain_law_from_sources","label":"Explain law from sources","description":"Find and explain retrieved primary legal material for the stated jurisdiction; show the source passage and date."},
+    {"id":"compare_judgments","label":"Compare court decisions","description":"Find factually related Supreme Court or High Court decisions and describe the case, result, similarities, and differences. Treatment status is not checked unless a citator source is available."},
+    {"id":"understand_document_text","label":"Understand a notice or document","description":"Explain user-provided text, extract names, dates, requests, and unclear terms, and distinguish what the text says from what it legally means."},
+    {"id":"organize_events","label":"Organize events and evidence","description":"Turn the caller's account into a clearly marked, editable timeline, list of reported facts, and evidence organization plan."},
+    {"id":"track_user_dates","label":"Track dates the caller gives","description":"Collect and remind about dates the caller supplies. Do not silently convert a date into a legal deadline."},
+    {"id":"prepare_document_draft","label":"Prepare a document draft","description":"Draft an editable factual summary or source-supported legal document when requested. Flag all missing facts and legal requirements; never file or send it."},
+    {"id":"prepare_legal_aid","label":"Prepare for legal aid","description":"Find a supported legal-aid contact route and organize an intake summary, eligibility questions, and language preference."},
+    {"id":"plan_safe_next_steps","label":"Plan safer next steps","description":"Prioritize immediate safety, identify what can safely be recorded or preserved, and avoid advice that increases confrontation or risk."},
+    {"id":"translate_and_rephrase","label":"Explain in the caller's language","description":"Translate or restate legal information in the user's chosen or detected language while preserving citations, uncertainty, names, dates, and statutory wording."},
+    {"id":"prepare_questions","label":"Prepare questions for an office or lawyer","description":"Generate situation-specific questions from facts, source gaps, and the user's goal rather than using a fixed questionnaire."},
+    {"id":"request_human_review","label":"Request a person in the caller's language","description":"Offer a connection when the user asks or a document is intended for formal submission. Connection and information sharing require separate explicit user choices."}
+  ],
+  "action_policy": {
+    "automatic": ["retrieval", "summarization", "translation", "timeline_generation", "draft_generation", "source_display"],
+    "requires_explicit_user_action": ["request_human_review", "save_artifact", "external_submission", "send_message", "contact_authority", "create_notification"],
+    "unsupported_in_this_build": ["court_filing", "formal_service_of_process", "police_or_bank_contact", "payment", "verified_deadline_calculation", "live_precedent_treatment_check"]
+  }
+}

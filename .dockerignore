@@ -1,0 +1,17 @@
+.venv
+.runtime
+.git
+.github
+.pytest_cache
+__pycache__
+*.pyc
+.env
+.env.*
+!.env.example
+tests
+evals
+scripts
+docs
+skills
+.agents
+.DS_Store

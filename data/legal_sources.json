@@ -1,0 +1,72 @@
+[
+  {
+    "id": "constitution-india-article-22",
+    "title": "Constitution of India — Article 22(1)–(2)",
+    "authority": "Government of India — India Code",
+    "jurisdiction": "IN",
+    "kind": "constitution",
+    "review_status": "approved",
+    "effective_from": "1950-01-26",
+    "effective_to": null,
+    "checked_at": "2026-10-26",
+    "url": "https://www.indiacode.nic.in/bitstream/123456789/19151/1/constitution_of_india.pdf",
+    "text": "Article 22(1): No person who is arrested shall be detained in custody without being informed, as soon as may be, of the grounds for such arrest nor shall he be denied the right to consult, and to be defended by, a legal practitioner of his choice. Article 22(2): Every person who is arrested and detained in custody shall be produced before the nearest magistrate within a period of twenty-four hours of such arrest excluding the time necessary for the journey from the place of arrest to the court of the magistrate and no such person shall be detained in custody beyond the said period without the authority of a magistrate.",
+    "tags": ["arrest", "detained", "grounds", "lawyer", "advocate", "magistrate", "police", "custody", "article 22"]
+  },
+  {
+    "id": "nalsa-faq-urgent-legal-assistance",
+    "title": "NALSA FAQs — urgent legal assistance and legal services",
+    "authority": "National Legal Services Authority",
+    "jurisdiction": "IN",
+    "kind": "official-guidance",
+    "review_status": "approved",
+    "effective_from": null,
+    "effective_to": null,
+    "checked_at": "2026-10-26",
+    "url": "https://nalsa.gov.in/faqs/",
+    "text": "NALSA states that its toll-free helpline number 15100 can be contacted to seek urgent legal assistance. NALSA describes legal services as including advice on legal matters, drafting of legal documents and representation by an advocate assigned by the concerned Legal Services Authority, subject to applicable eligibility and process. The NALSA FAQs list Legal Services Institutions at national, state, district, high court and taluka levels.",
+    "tags": ["legal aid", "legal services", "legal assistance", "lawyer", "advocate", "urgent", "helpline", "15100", "referral"]
+  },
+  {
+    "id": "bnss-2023-section-173",
+    "title": "Bharatiya Nagarik Suraksha Sanhita, 2023 — Section 173 (Information in cognizable cases / FIR)",
+    "authority": "Government of India — India Code",
+    "jurisdiction": "IN",
+    "kind": "statute",
+    "review_status": "approved",
+    "effective_from": "2024-07-01",
+    "effective_to": null,
+    "checked_at": "2026-10-26",
+    "url": "https://www.indiacode.nic.in/bitstream/123456789/20888/1/A2024-46.pdf",
+    "text": "Section 173(1): Every information relating to the commission of a cognizable offence, if given orally to an officer in charge of a police station, shall be reduced to writing by him or under his direction, and be read over to the informant; and every such information, whether given in writing or reduced to writing as aforesaid, shall be signed by the person giving it, and the substance thereof shall be entered in a book to be kept by such officer in such form as the State Government may prescribe in this behalf. Section 173(2): A copy of the information as recorded under sub-section (1) shall be given forthwith, free of cost, to the informant or the person giving it. Section 173(4): Any person aggrieved by a refusal on the part of an officer in charge of a police station to record the information referred to in sub-section (1) may send the substance of such information, in writing and by post, to the Superintendent of Police concerned who, if satisfied that such information discloses the commission of a cognizable offence, shall either investigate the case himself or direct an investigation to be made by any police officer subordinate to him.",
+    "tags": ["fir", "police", "cognizable", "complaint", "refusal", "superintendent of police", "section 154", "section 173", "thana", "free copy"]
+  },
+  {
+    "id": "crpc-1973-section-156",
+    "title": "Code of Criminal Procedure, 1973 — Section 156(3) / BNSS Section 175(3) (Magistrate power to order investigation)",
+    "authority": "Government of India — India Code",
+    "jurisdiction": "IN",
+    "kind": "statute",
+    "review_status": "approved",
+    "effective_from": "1974-04-01",
+    "effective_to": null,
+    "checked_at": "2026-10-26",
+    "url": "https://www.indiacode.nic.in/bitstream/123456789/15272/1/crpc.pdf",
+    "text": "Section 156(3): Any Magistrate empowered under section 190 may order such an investigation as above-mentioned. Where an officer in charge of a police station refuses to register an FIR upon complaint of a cognizable offence and the Superintendent of Police fails to act, the aggrieved person may approach the jurisdictional Magistrate by application under this section praying for a direction to the police to register the first information report and investigate the matter.",
+    "tags": ["magistrate", "investigation", "section 156", "fir order", "refusal", "police direction", "156(3)"]
+  },
+  {
+    "id": "registration-act-1908-section-22a",
+    "title": "Registration Act, 1908 — Section 22-A (Prohibition of registration of certain documents)",
+    "authority": "Government of India — India Code",
+    "jurisdiction": "IN",
+    "kind": "statute",
+    "review_status": "approved",
+    "effective_from": "1908-01-01",
+    "effective_to": null,
+    "checked_at": "2026-10-26",
+    "url": "https://www.indiacode.nic.in/bitstream/123456789/19150/1/registration_act_1908.pdf",
+    "text": "Section 22-A: Prohibition of registration of certain documents. (1) The State Government may, by notification in the Official Gazette, declare that registration of any document or class of documents affecting immovable property belonging to the State Government or local authority, or assigned lands, or properties belonging to religious institutions or charitable endowments, shall be prohibited. Any person aggrieved by an erroneous entry or listing of private patta land under Section 22-A may file a representation before the District Collector or the designated revenue committee for de-notification and deletion of the survey number from the prohibited property list, or approach the High Court under Article 226 of the Constitution of India.",
+    "tags": ["22-a", "22a", "section 22-a", "registration act", "prohibited property", "government land", "collector", "survey number", "de-notification", "patta"]
+  }
+]

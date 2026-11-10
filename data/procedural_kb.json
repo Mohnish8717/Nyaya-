@@ -1,0 +1,1096 @@
+{
+  "version": "1.0.0",
+  "purpose": "Curated, reviewed procedural navigation for common Indian legal processes. This layer is deterministic: the model may explain and translate it, but it cannot invent steps. Every record carries its own review status and official entry point.",
+  "policy": {
+    "draft_visibility": "Records with review_status 'draft' are shown with a visible confirmation banner and the official link. Only 'approved' records may be presented as reviewed.",
+    "no_deadline_computation": "The app never converts a caller-supplied date into a legal deadline. It may repeat a period that the official source states, labelled as stated by that source.",
+    "no_fees_as_fact": "Fees and pecuniary limits change by notification. Any figure is marked verify_at_source and must be confirmed before a caller relies on it."
+  },
+  "procedures": [
+    {
+      "id": "police-fir",
+      "label": "File an FIR (police complaint)",
+      "summary": "Report a cognizable offence at a police station and get a written, numbered copy of the complaint. Refusal is not the end of the route.",
+      "jurisdiction": "*",
+      "urgency": "high",
+      "review_status": "draft",
+      "checked_at": null,
+      "source": {
+        "authority": "Bharatiya Nagarik Suraksha Sanhita, 2023 (earlier CrPC s.154)",
+        "title": "Information in cognizable cases",
+        "url": "https://www.indiacode.nic.in/"
+      },
+      "signals": [
+        "एफआईआर",
+        "प्राथमिकी",
+        "थाना",
+        "fir",
+        "police complaint",
+        "thana",
+        "station",
+        "zero fir",
+        "complaint likhna",
+        "police report",
+        "ncr",
+        "cognizable",
+        "एफआयआर"
+      ],
+      "case_terms": [
+        "cognizable",
+        "154"
+      ],
+      "steps": [
+        {
+          "action": "Go to the nearest police station, or any station for a Zero FIR",
+          "detail": "A Zero FIR can be recorded at any station regardless of where the offence happened; it is then transferred to the station with jurisdiction. This is procedural practice, not a separate statute.",
+          "where": "Any police station",
+          "bring": [
+            "ID proof if available",
+            "any document or photo related to the incident"
+          ]
+        },
+        {
+          "action": "Give the complaint orally or in writing",
+          "detail": "It must be recorded, read back to you, and signed by you. You are entitled to a free copy.",
+          "where": "Police station",
+          "bring": []
+        },
+        {
+          "action": "Ask for the FIR number and copy",
+          "detail": "Note the FIR number, station, date and the officer's name. Keep the free copy safe.",
+          "where": "Police station",
+          "bring": [
+            "a notebook or phone to record details"
+          ]
+        },
+        {
+          "action": "If the station refuses, escalate in writing",
+          "detail": "Send the complaint to the Superintendent of Police / Commissioner. If that also fails, a Magistrate can be approached. Keep proof of delivery (receipt, postal acknowledgment, email).",
+          "where": "SP / Commissioner office",
+          "bring": [
+            "copy of the original complaint",
+            "proof of refusal if any"
+          ]
+        },
+        {
+          "action": "For a woman complainant, or a child, ask about special provisions",
+          "detail": "A woman complainant may be recorded at her residence, and in the presence of a woman officer where required. Sensitive offences have separate procedures.",
+          "where": "Police station",
+          "bring": []
+        }
+      ],
+      "if_refused": "Refusal to register a cognizable offence is itself a grievance. Escalate to the SP/Commissioner in writing and keep delivery proof; a Magistrate can be moved if that fails.",
+      "handoff": {
+        "kind": "legal_aid",
+        "label": "Free legal aid through NALSA / District Legal Services Authority",
+        "url": "https://nalsa.gov.in/"
+      },
+      "verify_at_source": [
+        "State-specific forms and station practice",
+        "Whether the offence is cognizable or non-cognizable (that changes the route)"
+      ]
+    },
+    {
+      "id": "free-legal-aid",
+      "label": "Apply for free legal aid",
+      "summary": "Get a free lawyer and legal support through the National / District Legal Services Authority if you are eligible.",
+      "jurisdiction": "*",
+      "urgency": "normal",
+      "review_status": "draft",
+      "checked_at": null,
+      "source": {
+        "authority": "National Legal Services Authority (NALSA)",
+        "title": "Legal aid and eligibility",
+        "url": "https://nalsa.gov.in/"
+      },
+      "signals": [
+        "मुफ़्त कानूनी सहायता",
+        "मुफ्त कानूनी सहायता",
+        "कानूनी सहायता",
+        "free lawyer",
+        "legal aid",
+        "nalsa",
+        "dlsa",
+        "cannot afford lawyer",
+        "vakil nahi",
+        "muft vakalat",
+        "legal services authority"
+      ],
+      "case_terms": [
+        "legal",
+        "aid",
+        "counsel"
+      ],
+      "steps": [
+        {
+          "action": "Check whether you fall in an eligible category",
+          "detail": "Common categories include women, children, members of SC/ST, persons with disabilities, persons in custody, industrial workmen, and people below the state income threshold. Income limits vary by state.",
+          "where": "Online or at the DLSA office",
+          "bring": []
+        },
+        {
+          "action": "Go to the District Legal Services Authority at your district court, or apply online",
+          "detail": "Front-office lawyers and para-legal volunteers usually help draft the application. There is normally no fee for legal aid itself.",
+          "where": "District court premises, or the state legal services website",
+          "bring": [
+            "ID proof",
+            "income proof if relying on income",
+            "any notice, FIR, or court paper"
+          ]
+        },
+        {
+          "action": "Give a short written account of the problem",
+          "detail": "Dates, people involved, what you want, and what has already happened. Attach whatever papers exist; missing papers should not stop the application.",
+          "where": "DLSA office",
+          "bring": [
+            "existing papers",
+            "a one-page timeline"
+          ]
+        },
+        {
+          "action": "Ask what has been assigned and to whom",
+          "detail": "Get the application number, the name of the assigned lawyer or mediator, and the next date. Ask how to contact the assigned lawyer directly.",
+          "where": "DLSA office",
+          "bring": []
+        }
+      ],
+      "handoff": {
+        "kind": "in_person",
+        "label": "District Legal Services Authority front office",
+        "url": "https://nalsa.gov.in/"
+      },
+      "verify_at_source": [
+        "Current state income threshold",
+        "Whether the local DLSA accepts online applications",
+        "Any fee for certified copies (legal aid representation itself is free)"
+      ]
+    },
+    {
+      "id": "consumer-complaint",
+      "label": "File a consumer complaint",
+      "summary": "Complain about a defective good or deficient service under the Consumer Protection Act, 2019.",
+      "jurisdiction": "*",
+      "urgency": "normal",
+      "review_status": "draft",
+      "checked_at": null,
+      "source": {
+        "authority": "Consumer Protection Act, 2019; e-Daakhil",
+        "title": "Consumer dispute redressal commissions",
+        "url": "https://consumerhelpline.gov.in/"
+      },
+      "signals": [
+        "उपभोक्ता",
+        "रिफंड",
+        "consumer",
+        "refund",
+        "defective",
+        "seller",
+        "shopkeeper",
+        "online order",
+        "service deficiency",
+        "warranty",
+        "edaakhil",
+        "consumer court"
+      ],
+      "case_terms": [
+        "consumer",
+        "deficiency",
+        "refund"
+      ],
+      "steps": [
+        {
+          "action": "Complain to the seller or service provider in writing first",
+          "detail": "Keep the order confirmation, invoice, warranty, and every email or chat. A written first complaint makes the deficiency easy to show.",
+          "where": "Seller's support channel",
+          "bring": [
+            "invoice",
+            "order ID",
+            "photos of the defect"
+          ]
+        },
+        {
+          "action": "Escalate to the national consumer helpline",
+          "detail": "Call 1915 or use the consumer helpline portal. Many disputes settle at this stage without a filing.",
+          "where": "1915 / consumerhelpline.gov.in",
+          "bring": [
+            "complaint reference numbers"
+          ]
+        },
+        {
+          "action": "Choose the correct commission by value",
+          "detail": "District, State or National commission depending on the value of the consideration paid. Pecuniary limits were revised by notification, so confirm the current limit before filing.",
+          "where": "District / State / National Commission",
+          "bring": [
+            "invoices showing value"
+          ]
+        },
+        {
+          "action": "File with the right documents",
+          "detail": "A complaint with the facts, the relief sought, evidence, and the opposite party's details. e-Daakhil allows electronic filing in many commissions.",
+          "where": "e-Daakhil portal",
+          "bring": [
+            "invoice",
+            "proof of payment",
+            "correspondence",
+            "affidavit where required"
+          ]
+        },
+        {
+          "action": "Note the limitation period",
+          "detail": "The Act states a two-year limitation from the cause of action. Do not rely on that alone; confirm how it applies to your dates with the commission or a lawyer.",
+          "where": "Commission",
+          "bring": []
+        }
+      ],
+      "handoff": {
+        "kind": "legal_aid",
+        "label": "Consumer helpline escalation and legal aid",
+        "url": "https://consumerhelpline.gov.in/"
+      },
+      "verify_at_source": [
+        "Current pecuniary limits by notification",
+        "Court fee for the chosen commission",
+        "Whether your commission accepts e-Daakhil filing"
+      ]
+    },
+    {
+      "id": "cybercrime-report",
+      "label": "Report online fraud or cybercrime",
+      "summary": "Report financial cyber fraud urgently so the transaction can be flagged, and preserve evidence.",
+      "jurisdiction": "*",
+      "urgency": "critical",
+      "review_status": "draft",
+      "checked_at": null,
+      "source": {
+        "authority": "Indian Cyber Crime Coordination Centre",
+        "title": "National cybercrime reporting portal",
+        "url": "https://cybercrime.gov.in/"
+      },
+      "signals": [
+        "साइबर",
+        "ऑनलाइन धोखाधड़ी",
+        "धोखाधड़ी",
+        "otp",
+        "fraud",
+        "scam",
+        "upi",
+        "cyber",
+        "online fraud",
+        "online cheating",
+        "cheated online",
+        "transferred money",
+        "money transferred",
+        "hacked",
+        "account debited",
+        "phishing",
+        "sextortion",
+        "fake profile"
+      ],
+      "case_terms": [
+        "cheating",
+        "dishonest inducement",
+        "electronic transfer",
+        "forgery",
+        "phishing"
+      ],
+      "steps": [
+        {
+          "action": "Call 1930 immediately for financial fraud",
+          "detail": "Reporting quickly gives the best chance of freezing the transferred money. Do not wait to gather every detail first.",
+          "where": "1930 (national cybercrime helpline)",
+          "bring": [
+            "transaction IDs",
+            "amount",
+            "time"
+          ]
+        },
+        {
+          "action": "Report on the national portal",
+          "detail": "File at cybercrime.gov.in, choosing the category that fits (financial fraud, social media, etc.). Keep the acknowledgement number.",
+          "where": "cybercrime.gov.in",
+          "bring": [
+            "screenshots",
+            "transaction records",
+            "URLs or handles"
+          ]
+        },
+        {
+          "action": "Tell your bank and ask it to flag the transaction",
+          "detail": "Ask in writing for the dispute reference. Also ask whether the account or card should be blocked.",
+          "where": "Bank branch, app, or customer care",
+          "bring": [
+            "statement",
+            "transaction reference"
+          ]
+        },
+        {
+          "action": "Preserve evidence before it disappears",
+          "detail": "Take screenshots with timestamps, save emails with headers, and do not delete chats. Do not share OTPs, passwords, or remote-access codes with anyone who contacts you afterwards.",
+          "where": "Your own devices",
+          "bring": []
+        },
+        {
+          "action": "Follow up at a police station if the portal route stalls",
+          "detail": "Take the portal acknowledgement to the station and ask for the case to be registered.",
+          "where": "Police station",
+          "bring": [
+            "portal acknowledgement"
+          ]
+        }
+      ],
+      "if_refused": "If no action follows, keep escalating with the acknowledgement number, in writing.",
+      "handoff": {
+        "kind": "legal_aid",
+        "label": "Free legal aid for recovery and follow-up",
+        "url": "https://nalsa.gov.in/"
+      },
+      "verify_at_source": [
+        "Bank dispute deadlines in your card or account terms",
+        "Whether your state has a dedicated cyber cell"
+      ]
+    },
+    {
+      "id": "rti-request",
+      "label": "File an RTI request",
+      "summary": "Ask a public authority for information it holds, under the Right to Information Act, 2005.",
+      "jurisdiction": "*",
+      "urgency": "normal",
+      "review_status": "draft",
+      "checked_at": null,
+      "source": {
+        "authority": "Right to Information Act, 2005",
+        "title": "RTI online",
+        "url": "https://rtionline.gov.in/"
+      },
+      "signals": [
+        "सूचना का अधिकार",
+        "आरटीआई",
+        "rti",
+        "right to information",
+        "information request",
+        "public authority",
+        "government file",
+        "soochna"
+      ],
+      "case_terms": [
+        "information",
+        "authority"
+      ],
+      "steps": [
+        {
+          "action": "Identify the public authority that holds the record",
+          "detail": "Ask the specific department that created or maintains the file, not a general ministry. Wrong-authority applications get transferred, which costs time.",
+          "where": "Department website",
+          "bring": []
+        },
+        {
+          "action": "Write specific, factual questions",
+          "detail": "Ask for information, not opinions or reasons. 'Copies of inspection reports for X site from Jan to Jun' works; 'why was my complaint ignored' usually does not.",
+          "where": "Online or by post",
+          "bring": []
+        },
+        {
+          "action": "File with the fee",
+          "detail": "Central applications are commonly filed online with a small fee; states set their own. Keep the receipt and the registration number.",
+          "where": "rtionline.gov.in or the department's PIO",
+          "bring": [
+            "ID proof where required"
+          ]
+        },
+        {
+          "action": "Track the stated response period",
+          "detail": "The Act states a 30-day response period in the ordinary case, shorter where life or liberty is involved. Record the filing date and the deadline the portal shows.",
+          "where": "Portal",
+          "bring": []
+        },
+        {
+          "action": "File a first appeal if there is no response",
+          "detail": "The Act provides a first appeal to the appellate authority, and then a second appeal to the Information Commission. Keep proof of the original filing.",
+          "where": "Appellate authority / Information Commission",
+          "bring": [
+            "original application",
+            "receipt",
+            "any reply"
+          ]
+        }
+      ],
+      "handoff": {
+        "kind": "legal_aid",
+        "label": "Legal aid for appeals and drafting",
+        "url": "https://nalsa.gov.in/"
+      },
+      "verify_at_source": [
+        "Current fee",
+        "State-specific response practice",
+        "Whether the authority accepts online filing"
+      ]
+    },
+    {
+      "id": "unpaid-wages",
+      "label": "Recover unpaid wages or salary",
+      "summary": "Raise a wage claim with the labour authority for your area, with records that establish the work and the amount.",
+      "jurisdiction": "*",
+      "urgency": "high",
+      "review_status": "draft",
+      "checked_at": null,
+      "source": {
+        "authority": "Ministry of Labour and Employment",
+        "title": "Labour grievance and Shram Suvidha",
+        "url": "https://shramsuvidha.gov.in/"
+      },
+      "signals": [
+        "वेतन",
+        "तनख्वाह",
+        "मजदूरी",
+        "पगार",
+        "salary",
+        "wages",
+        "unpaid",
+        "employer",
+        "tankha",
+        "not paid",
+        "terminated",
+        "notice period",
+        "boss",
+        "company owes"
+      ],
+      "case_terms": [
+        "wages",
+        "employer",
+        "labour"
+      ],
+      "steps": [
+        {
+          "action": "Put the demand in writing to the employer",
+          "detail": "State the period worked, the agreed wage, what was paid, and what remains. Send it in a way you can prove (email, registered post, or a message you can screenshot).",
+          "where": "Employer",
+          "bring": [
+            "appointment letter",
+            "salary slips",
+            "bank statements"
+          ]
+        },
+        {
+          "action": "Collect records that prove the work",
+          "detail": "Attendance, shift rosters, ID card, supervisor messages, bank credits, and any written terms. Where records are missing, messages and witness accounts matter more.",
+          "where": "Your own records",
+          "bring": []
+        },
+        {
+          "action": "File a complaint with the labour authority for your area",
+          "detail": "The correct office depends on the establishment and the state. The labour commissioner's office or the state labour department can direct you. Filing is normally free.",
+          "where": "Labour commissioner / state labour department",
+          "bring": [
+            "ID proof",
+            "employment records",
+            "written demand and its delivery proof"
+          ]
+        },
+        {
+          "action": "Attend conciliation and record any settlement",
+          "detail": "If a settlement is reached, get it in writing with a payment date. Do not rely on a verbal promise.",
+          "where": "Labour office",
+          "bring": [
+            "all records"
+          ]
+        },
+        {
+          "action": "Ask about the adjudication route if conciliation fails",
+          "detail": "Depending on the establishment and the claim, the route may be a labour court or civil suit. The applicable law and limitation period differ, so confirm which applies to you.",
+          "where": "Labour office / legal aid",
+          "bring": [
+            "conciliation record"
+          ]
+        }
+      ],
+      "handoff": {
+        "kind": "legal_aid",
+        "label": "Free legal aid for a wage claim",
+        "url": "https://nalsa.gov.in/"
+      },
+      "verify_at_source": [
+        "Which labour statute covers your establishment",
+        "State office jurisdiction and filing form",
+        "Limitation period for your claim"
+      ]
+    },
+    {
+      "id": "domestic-violence-protection",
+      "label": "Get protection from domestic violence",
+      "summary": "Safety first, then protection orders and interim relief under the Protection of Women from Domestic Violence Act, 2005.",
+      "jurisdiction": "*",
+      "urgency": "critical",
+      "review_status": "draft",
+      "checked_at": null,
+      "source": {
+        "authority": "Protection of Women from Domestic Violence Act, 2005",
+        "title": "Protection officers and magistrate remedies",
+        "url": "https://ncw.nic.in/"
+      },
+      "signals": [
+        "घरेलू हिंसा",
+        "सुरक्षा आदेश",
+        "दहेज",
+        "domestic violence",
+        "husband beats",
+        "in-laws",
+        "dowry",
+        "abuse at home",
+        "marital",
+        "husband threat",
+        "ghar me maar",
+        "violence"
+      ],
+      "case_terms": [
+        "domestic",
+        "violence",
+        "protection"
+      ],
+      "steps": [
+        {
+          "action": "If you are in immediate danger, get to safety and call 112",
+          "detail": "Emergency response comes before paperwork. If you can, take ID, medicines, and your phone with you.",
+          "where": "Anywhere safe",
+          "bring": [
+            "phone",
+            "ID if reachable",
+            "medicines"
+          ]
+        },
+        {
+          "action": "Contact the women's helpline or a protection officer",
+          "detail": "The 181 helpline and the district protection officer can help with shelter, medical needs, and the application. You do not need a lawyer to start.",
+          "where": "181 / District Protection Officer",
+          "bring": []
+        },
+        {
+          "action": "Get medical attention and record injuries",
+          "detail": "Ask for a medical record or discharge summary. Photograph injuries with dates where it is safe to do so.",
+          "where": "Hospital",
+          "bring": [
+            "ID if available"
+          ]
+        },
+        {
+          "action": "Apply to the Magistrate for protection and relief",
+          "detail": "The Act provides for protection orders and interim relief, including residence and monetary relief. A protection officer or legal aid lawyer can file on your behalf.",
+          "where": "Magistrate's court",
+          "bring": [
+            "any records",
+            "details of the abuse and dates"
+          ]
+        },
+        {
+          "action": "Keep evidence and a safety plan",
+          "detail": "Keep copies with someone you trust, not only on a shared device. Identify a place you can go and a person you can call.",
+          "where": "Your own plan",
+          "bring": []
+        }
+      ],
+      "handoff": {
+        "kind": "in_person",
+        "label": "181 women's helpline and District Protection Officer",
+        "url": "https://ncw.nic.in/"
+      },
+      "verify_at_source": [
+        "Local shelter and protection officer contact",
+        "Whether an interim order needs a separate application in your district"
+      ]
+    },
+    {
+      "id": "cheque-bounce",
+      "label": "Respond to or file a cheque bounce case",
+      "summary": "The statutory notice-and-complaint route for a dishonoured cheque under section 138 of the Negotiable Instruments Act.",
+      "jurisdiction": "*",
+      "urgency": "high",
+      "review_status": "draft",
+      "checked_at": null,
+      "source": {
+        "authority": "Negotiable Instruments Act, 1881, section 138",
+        "title": "Dishonour of cheque for insufficiency of funds",
+        "url": "https://www.indiacode.nic.in/"
+      },
+      "signals": [
+        "चेक",
+        "बाउंस",
+        "अपर्याप्त धन",
+        "cheque bounce",
+        "cheque returned",
+        "dishonour",
+        "138",
+        "insufficient funds",
+        "memo",
+        "cheque"
+      ],
+      "case_terms": [
+        "dishonour",
+        "138"
+      ],
+      "steps": [
+        {
+          "action": "Get the bank memo and confirm the reason",
+          "detail": "The return memo states the reason (insufficient funds, signature mismatch, account closed). The reason affects the route.",
+          "where": "Bank",
+          "bring": [
+            "cheque copy",
+            "account details"
+          ]
+        },
+        {
+          "action": "Send a written demand notice to the drawer",
+          "detail": "The Act requires a demand notice within the stated period from the memo date. Send it in a provable way and keep the receipt and a copy.",
+          "where": "Post / courier / email where accepted",
+          "bring": [
+            "cheque copy",
+            "memo",
+            "statement of the debt"
+          ]
+        },
+        {
+          "action": "Wait out the notice period the Act specifies",
+          "detail": "The drawer gets a statutory period to pay. Only after that does a cause of action arise. Do not compute your own deadline; confirm the dates against the Act and the memo.",
+          "where": "—",
+          "bring": []
+        },
+        {
+          "action": "File the complaint before the right court",
+          "detail": "Jurisdiction and limitation are statutory and technical. Take the cheque, memo, notice, proof of service, and the account statement to a lawyer or legal aid clinic.",
+          "where": "Magistrate's court",
+          "bring": [
+            "cheque",
+            "memo",
+            "notice",
+            "proof of service",
+            "statement"
+          ]
+        },
+        {
+          "action": "If you received a notice, respond in writing",
+          "detail": "A reply does not stop the case but records your position. Keep proof that you replied.",
+          "where": "Through your lawyer",
+          "bring": [
+            "the notice",
+            "cheque",
+            "your records"
+          ]
+        }
+      ],
+      "handoff": {
+        "kind": "legal_aid",
+        "label": "Legal aid for the notice or complaint",
+        "url": "https://nalsa.gov.in/"
+      },
+      "verify_at_source": [
+        "Exact statutory periods and how they are counted",
+        "Territorial jurisdiction for the complaint",
+        "Whether the debt is legally enforceable"
+      ]
+    },
+    {
+      "id": "tenancy-deposit-refund",
+      "label": "Landlord is not returning the security deposit",
+      "summary": "Ask a landlord to return a security or advance deposit, and escalate when they do not. Tenancy is state law: the forum, the notice period and any cap on the deposit come from your state's Act, not from a central statute.",
+      "jurisdiction": "*",
+      "urgency": "normal",
+      "review_status": "draft",
+      "checked_at": null,
+      "source": {
+        "authority": "Ministry of Housing and Urban Affairs",
+        "title": "Model Tenancy Act, 2021, and state rent legislation",
+        "url": "https://mohua.gov.in/"
+      },
+      "signals": [
+        "किराया",
+        "मकान मालिक",
+        "जमा राशि",
+        "security deposit",
+        "deposit not returned",
+        "deposit wapas",
+        "advance deposit",
+        "rent deposit",
+        "landlord not returning",
+        "vacated the flat",
+        "not returning my money",
+        "makan malik paisa",
+        "return my deposit",
+        "refund my deposit",
+        "deposit not given back",
+        "deposit nahi de raha",
+        "deposit wapas nahi"
+      ],
+      "case_terms": [
+        "deposit",
+        "landlord",
+        "tenant"
+      ],
+      "steps": [
+        {
+          "action": "Work out exactly what is owed, in writing",
+          "detail": "The deposit paid, the date you vacated, any deduction the landlord claims, and why you dispute it. Add what the rent agreement says about the deposit and about notice. This becomes the demand, so it has to be accurate rather than long.",
+          "where": "Your own letter, email or message",
+          "bring": [
+            "rent agreement",
+            "deposit receipt or bank transfer proof",
+            "handover or vacating record"
+          ]
+        },
+        {
+          "action": "Send the demand so that delivery can be proved",
+          "detail": "Registered post with acknowledgement due, plus the same text by email or messaging app. Keep the postal receipt and a copy. Give a clear date to pay by, usually fifteen days.",
+          "where": "Post office, and your own email or phone",
+          "bring": [
+            "the written demand",
+            "address of the landlord as in the agreement"
+          ]
+        },
+        {
+          "action": "Find out which tenancy law applies in your state",
+          "detail": "There is no central tenancy statute in force across India. Some states have adopted the Model Tenancy Act, 2021 and have a Rent Authority with a fixed procedure; others still use their own Rent Control Act. Whether a deposit can be kept, and for how long, depends on that state law and on your agreement.",
+          "where": "State rent authority website, or the district court help desk",
+          "bring": []
+        },
+        {
+          "action": "File before the Rent Authority if your state has one",
+          "detail": "Where a Rent Authority exists, a deposit claim is usually filed there: it is quicker and cheaper than a civil suit. Where it does not, the claim is a suit for recovery of money in the civil court that has jurisdiction over the amount claimed.",
+          "where": "Rent Authority, or civil court",
+          "bring": [
+            "written demand and proof of delivery",
+            "rent agreement",
+            "deposit proof",
+            "any reply from the landlord"
+          ]
+        },
+        {
+          "action": "If the landlord also changed the lock or kept your belongings, treat that separately",
+          "detail": "That is a possession dispute, not a money claim, and it has its own short deadline. See the illegal eviction steps rather than waiting for the deposit case to finish.",
+          "where": "See the illegal eviction procedure",
+          "bring": []
+        }
+      ],
+      "handoff": {
+        "kind": "in_person",
+        "label": "District court help desk or the state Rent Authority",
+        "url": "https://mohua.gov.in/"
+      },
+      "verify_at_source": [
+        "Whether your state has adopted the Model Tenancy Act, 2021 or still uses its own Rent Control Act",
+        "The Rent Authority for your district, and whether it accepts complaints online",
+        "Any cap on the security deposit under your state's law",
+        "The limitation period for a money-recovery suit in your state"
+      ]
+    },
+    {
+      "id": "illegal-eviction-lockout",
+      "label": "Locked out or evicted without a court order",
+      "summary": "A landlord cannot take possession by force. If the lock was changed, your belongings were put out, or water and electricity were cut without a court order, there is a summary remedy and it has a six-month deadline.",
+      "jurisdiction": "*",
+      "urgency": "high",
+      "review_status": "draft",
+      "checked_at": null,
+      "source": {
+        "authority": "Specific Relief Act, 1963",
+        "title": "Section 6 — suit by person dispossessed of immovable property",
+        "url": "https://www.indiacode.nic.in/"
+      },
+      "signals": [
+        "मकान मालिक",
+        "ताला बदल",
+        "बेदखली",
+        "सामान बाहर",
+        "changed the lock",
+        "locked me out",
+        "threw out my belongings",
+        "evicted",
+        "eviction",
+        "no notice to vacate",
+        "cut off my water",
+        "cut my electricity",
+        "tala badal diya",
+        "ghar se nikal diya",
+        "sealed my house",
+        "dispossession"
+      ],
+      "case_terms": [
+        "eviction",
+        "ejectment",
+        "vacant possession",
+        "tenancy",
+        "dispossession"
+      ],
+      "steps": [
+        {
+          "action": "Do not break the lock yourself",
+          "detail": "Forcing your way back in can be treated as trespass or house-trespass and it weakens the possession claim you are about to make. The remedy is a court order restoring possession, not a second lock.",
+          "where": "—",
+          "bring": []
+        },
+        {
+          "action": "Record what happened on the same day",
+          "detail": "Photographs of the new lock or seal, the date and time, who was present, any message from the landlord, and a list of what is still inside. Neighbours who saw it are witnesses; note their names and numbers while it is fresh.",
+          "where": "At the property",
+          "bring": [
+            "phone camera",
+            "rent agreement",
+            "rent receipts"
+          ]
+        },
+        {
+          "action": "Give a written complaint at the police station",
+          "detail": "Take a written complaint describing the lock change or removal of belongings and the persons responsible. Ask for a receipt or diary number before you leave. A refusal to register a complaint is itself something you can escalate.",
+          "where": "Local police station",
+          "bring": [
+            "written complaint in duplicate",
+            "ID proof",
+            "rent agreement",
+            "photographs"
+          ]
+        },
+        {
+          "action": "Move quickly: section 6 of the Specific Relief Act",
+          "detail": "A person removed from immovable property without consent, otherwise than in due course of law, can sue to recover possession. The court decides possession summarily and does not go into title, which is what makes it fast. The suit has to be brought within six months of the dispossession; after that this route is gone and only a full title suit remains.",
+          "where": "Civil court with jurisdiction over the property",
+          "bring": [
+            "proof you were in possession (rent agreement, receipts, bills)",
+            "the police complaint",
+            "photographs and dates"
+          ]
+        },
+        {
+          "action": "Ask for restoration of possession at the first hearing",
+          "detail": "Ask the court for an order restoring possession while the suit continues, and take a certified copy of that order to the police station so they can assist in executing it.",
+          "where": "The same civil court",
+          "bring": [
+            "case number",
+            "the order once passed"
+          ]
+        },
+        {
+          "action": "Put the disconnection of water or electricity in the same complaint",
+          "detail": "Cutting a tenant's supply to force them out is a separate wrong. Complain to the distribution company as well, and reference it in the court papers: it shows the dispossession was deliberate.",
+          "where": "Electricity or water distribution company, and the civil court",
+          "bring": [
+            "bills in your name or the landlord's",
+            "meter photographs"
+          ]
+        }
+      ],
+      "if_refused": {
+        "label": "If the police will not register the complaint",
+        "detail": "Send the same complaint in writing to the Superintendent of Police or the District Magistrate, and say in the civil suit that the complaint was refused. The possession suit does not depend on a criminal complaint being registered.",
+        "url": "https://nalsa.gov.in/"
+      },
+      "handoff": {
+        "kind": "in_person",
+        "label": "District Legal Services Authority, for a lawyer at the first hearing",
+        "url": "https://nalsa.gov.in/"
+      },
+      "verify_at_source": [
+        "The six-month limit under section 6 runs from the date of dispossession — fix that date on your facts",
+        "Your state's Rent Control Act may require the eviction to go through a controller before any suit",
+        "Which civil court in your district hears possession suits, and its filing fee"
+      ]
+    },
+    {
+      "id": "arrest-rights",
+      "label": "Arrested and held by the police",
+      "summary": "What the police must do when they arrest someone, what to ask for at the station, and what to raise at the first hearing before a magistrate.",
+      "jurisdiction": "*",
+      "urgency": "high",
+      "review_status": "draft",
+      "checked_at": null,
+      "source": {
+        "authority": "Bharatiya Nagarik Suraksha Sanhita, 2023",
+        "title": "Chapter V, arrest of persons (ss. 35-62), and Article 22 of the Constitution",
+        "url": "https://www.indiacode.nic.in/"
+      },
+      "signals": [
+        "गिरफ्तार",
+        "हिरासत",
+        "arrested",
+        "in custody",
+        "police custody",
+        "giraftar",
+        "thana mein band",
+        "detained by police",
+        "remand",
+        "police arrested",
+        "judicial custody",
+        "arrest kiya"
+      ],
+      "case_terms": [
+        "arrest",
+        "magistrate",
+        "detention"
+      ],
+      "steps": [
+        {
+          "action": "Ask for the grounds of arrest, and for them in writing",
+          "detail": "The officer must tell you the full particulars of the offence and the grounds of arrest in a language you understand (BNSS section 47), and must tell you if the offence is bailable so you can be released on sureties. Article 22(1) of the Constitution makes being informed of the grounds a fundamental right, not a courtesy.",
+          "where": "At the police station",
+          "bring": [
+            "ID proof, if you have it"
+          ]
+        },
+        {
+          "action": "Give the name of one relative or friend to be informed",
+          "detail": "Ask that a nominated person be told about the arrest and where you are being held, and that this is written into the record. Do the same for anyone who depends on you.",
+          "where": "At the police station",
+          "bring": [
+            "one phone number you know by heart"
+          ]
+        },
+        {
+          "action": "Ask to meet a lawyer during interrogation",
+          "detail": "You are entitled to meet an advocate of your choice during interrogation, though not throughout it (BNSS section 38). Article 22(1) is wider and is not limited to interrogation. If you cannot afford a lawyer, say so now rather than at trial.",
+          "where": "Police station, or through the DLSA",
+          "bring": [
+            "name of a lawyer or a legal aid office"
+          ]
+        },
+        {
+          "action": "You must be produced before a magistrate within twenty-four hours",
+          "detail": "Excluding the time needed to travel to the court (BNSS section 58, Article 22(2)). Detention beyond that, without a magistrate's order, is unlawful. Ask for the time of arrest as recorded, and keep the arrest memo.",
+          "where": "The magistrate's court",
+          "bring": [
+            "arrest memo",
+            "any paper given at the station"
+          ]
+        },
+        {
+          "action": "Ask for free legal aid at the first production",
+          "detail": "A person who cannot afford a lawyer is entitled to one at the state's expense, and it is raised by asking the magistrate at the first hearing (Article 39A; Legal Services Authorities Act, 1987, section 12). The District Legal Services Authority then assigns counsel. Ask for the assigned lawyer's name and contact before you leave the court.",
+          "where": "Magistrate's court, and the DLSA desk on the court premises",
+          "bring": [
+            "the arrest papers",
+            "income or employment information"
+          ]
+        },
+        {
+          "action": "Ask for a medical examination, and for a copy of the report",
+          "detail": "An arrested person can be examined by a doctor, and is entitled to a copy of the report. Injuries have to be recorded when they are seen; there is no useful record afterwards.",
+          "where": "Government hospital, on the court's or the police's referral",
+          "bring": [
+            "the arrest memo"
+          ]
+        },
+        {
+          "action": "Keep every paper, and ask before signing",
+          "detail": "Arrest memo, grounds of arrest, the list or receipt for anything taken from you, the medical report, and the remand order. Read what you are asked to sign and keep a copy of each page; a blank paper signed in custody cannot be undone later.",
+          "where": "Police station and court",
+          "bring": []
+        }
+      ],
+      "if_refused": {
+        "label": "If no grounds are given or the twenty-four hours pass",
+        "detail": "Say it on the record at the first production before the magistrate: that the grounds were not given in writing, or that you were held beyond twenty-four hours without an order. The magistrate is the person the law makes responsible at that point, and the DLSA lawyer can put it in writing the same day.",
+        "url": "https://nalsa.gov.in/"
+      },
+      "handoff": {
+        "kind": "in_person",
+        "label": "District Legal Services Authority lawyer at the magistrate's court",
+        "url": "https://nalsa.gov.in/"
+      },
+      "verify_at_source": [
+        "Whether the arrest was with or without a warrant, which decides which BNSS provision applies",
+        "The exact time of arrest recorded in the memo, because the twenty-four hours run from there",
+        "Whether an application for bail has already been filed, and in which court",
+        "The DLSA office and duty lawyer for your district"
+      ]
+    },
+    {
+      "id": "section-22a-denotification",
+      "label": "De-notification of land under Section 22-A and road expansion compensation",
+      "summary": "Steps to de-notify private land mistakenly registered under Section 22-A of the Registration Act, 1908 as government property, and claim compensation for land utilized for road expansion.",
+      "jurisdiction": "*",
+      "urgency": "normal",
+      "review_status": "draft",
+      "checked_at": null,
+      "source": {
+        "authority": "Registration Act, 1908 (Section 22-A) and RFCTLARR Act, 2013",
+        "title": "Prohibition of registration of certain documents and land acquisition compensation",
+        "url": "https://www.indiacode.nic.in/"
+      },
+      "signals": [
+        "प्रतिबंधित सूची",
+        "भूमि अधिग्रहण",
+        "22a",
+        "22-a",
+        "twenty two a",
+        "twenty-two a",
+        "prohibited list",
+        "prohibited property",
+        "road extension",
+        "road widening",
+        "land acquisition",
+        "patta",
+        "denotification",
+        "de-notification",
+        "section 22",
+        "registration act"
+      ],
+      "case_terms": [
+        "acquisition",
+        "denotification"
+      ],
+      "steps": [
+        {
+          "action": "Gather title and revenue records to prove private ownership",
+          "detail": "Collect certified copies of registered sale deed / title deed, latest Encumbrance Certificate (EC), 1-B Namuna (Record of Rights), and Pahani / Adangal from before the road expansion project showing continuous private possession.",
+          "where": "Sub-Registrar Office, MeeSeva, or Village Revenue Office",
+          "bring": [
+            "original title deeds",
+            "patta passbook / 1-B Namuna",
+            "pre-widening Pahani / Adangal",
+            "survey map / FMB"
+          ]
+        },
+        {
+          "action": "File a representation for De-notification before the District Collector",
+          "detail": "Submit a written application to the District Collector / District Level Scrutiny Committee (or through the MeeSeva / CCLA portal) requesting deletion of the survey number from the Section 22-A prohibited property list, attaching copies of your title chain and revenue records.",
+          "where": "District Collectorate / MeeSeva portal",
+          "bring": [
+            "representation letter",
+            "title chain documents",
+            "revenue records",
+            "endorsement or refusal memo from Sub-Registrar if any"
+          ]
+        },
+        {
+          "action": "Verify road widening compensation or award status",
+          "detail": "If the land was taken for road widening, check with the Revenue Divisional Officer (RDO) or Special Deputy Collector (Land Acquisition) whether a formal acquisition notification and award were passed under the RFCTLARR Act, 2013. If taken without compensation, file a claim for fair compensation or return of unutilized portion.",
+          "where": "RDO / Land Acquisition Office",
+          "bring": [
+            "proof of land utilization for road",
+            "survey sketch showing taken portion"
+          ]
+        },
+        {
+          "action": "Approach the High Court by filing a Writ Petition if the representation is delayed or rejected",
+          "detail": "If the District Collector fails to act within a reasonable timeframe (e.g. 90 days) or rejects clear title documents, file a Writ Petition under Article 226 of the Constitution before the High Court of Andhra Pradesh / Telangana for a direction to de-notify the land from the 22-A list.",
+          "where": "High Court",
+          "bring": [
+            "copy of representation to Collector",
+            "proof of service/receipt",
+            "title documents",
+            "rejection or inaction order"
+          ]
+        }
+      ],
+      "if_refused": {
+        "label": "If the Sub-Registrar refuses registration or Collector rejects de-notification",
+        "detail": "Obtain the written refusal or endorsement from the Sub-Registrar citing the specific clause of Section 22-A. Under the landmark Full Bench decision of the High Court, administrative rejection of undisputed private patta land without reasons can be challenged through a Writ Petition under Article 226.",
+        "url": "https://aphc.gov.in/"
+      },
+      "handoff": {
+        "kind": "legal_aid",
+        "label": "District Legal Services Authority (DLSA) for revenue and land compensation aid",
+        "url": "https://nalsa.gov.in/"
+      },
+      "verify_at_source": [
+        "Specific sub-clause of Section 22-A under which the property is placed (e.g., 22-A(1)(a) government land, or 22-A(1)(e) notification)",
+        "Whether an official land acquisition notification was published in the district gazette for the road project",
+        "District-specific grievance redressal procedures (e.g., Spandana / MeeSeva portal in Andhra Pradesh)"
+      ]
+    }
+  ]
+}

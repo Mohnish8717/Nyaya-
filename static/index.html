@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#14100d">
+  <meta name="color-scheme" content="dark">
+  <title>Nyaya — Citizen Legal Advocate</title>
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/static/icons/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Nyaya">
+  <meta name="description" content="Voice-first legal information for India: speak in any language, see the sources, and the next step.">
+  <link rel="stylesheet" href="/static/styles.css?v=38">
+  <script defer src="/static/voice-logic.js?v=1"></script>
+  <script defer src="/static/app.js?v=36"></script>
+</head>
+<body>
+  <a class="skip-link" href="#messageInput">Skip to the message box</a>
+  <!-- One icon family, 24px grid, 1.5 stroke, no emoji as an icon. -->
+  <svg class="icon-sprite" aria-hidden="true" focusable="false">
+    <symbol id="i-mic" viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v3"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 2 9 5-9 5-9-5 9-5Z"/><path d="m3 12 9 5 9-5M3 17l9 5 9-5"/></symbol>
+    <symbol id="i-bookmark" viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></symbol>
+    <symbol id="i-stop" viewBox="0 0 24 24"><rect x="7" y="7" width="10" height="10" rx="2"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+    <symbol id="i-volume" viewBox="0 0 24 24"><path d="M11 5 6 9H2v6h4l5 4V5Z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></symbol>
+    <symbol id="i-help" viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3M12 17h.01"/></symbol>
+    <symbol id="i-doc" viewBox="0 0 24 24"><path d="M14 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7z"/><path d="M14 2v5h5M9 13h6M9 17h4"/></symbol>
+  </svg>
+
+  <div class="app-shell">
+    <aside class="rail">
+      <a class="brand" href="/" aria-label="Nyaya home">
+        <span class="brand-mark">Nyaya<span>.</span></span>
+      </a>
+
+      <button class="new-case" id="newCase" type="button">
+        <svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg><span>New conversation</span>
+      </button>
+
+      <nav class="rail-nav" aria-label="Reference">
+        <button class="rail-link" id="sourceButton" type="button">
+          <svg class="icon" aria-hidden="true"><use href="#i-layers"/></svg><span>Guides and sources</span>
+        </button>
+        <button class="rail-link" id="savedItemsButton" type="button">
+          <svg class="icon" aria-hidden="true"><use href="#i-bookmark"/></svg><span>Saved</span>
+        </button>
+        <button class="rail-link" id="helpButton" type="button">
+          <svg class="icon" aria-hidden="true"><use href="#i-help"/></svg><span>How this works</span>
+        </button>
+      </nav>
+
+      <div class="rail-spacer"></div>
+
+      <p class="rail-status" id="providerState">
+        <span class="status-dot" aria-hidden="true"></span><span>Checking voice setup…</span>
+      </p>
+    </aside>
+
+    <main class="main-panel">
+      <header class="topbar">
+        <a class="mobile-brand" href="/" aria-label="Nyaya">Nyaya<span>.</span></a>
+        <p class="mode-chip" id="modeChip" role="status"><span class="mode-dot" aria-hidden="true"></span><span id="modeText">Connecting…</span></p>
+        <div class="topbar-actions">
+          <button class="icon-button" id="installButton" type="button" aria-label="Install this app" title="Install this app">
+            <svg class="icon" aria-hidden="true"><use href="#i-download"/></svg>
+          </button>
+          <button class="icon-button mobile-only" id="newCaseTop" type="button" aria-label="New conversation" title="New conversation">
+            <svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg>
+          </button>
+        </div>
+      </header>
+
+      <div class="workspace">
+        <section class="conversation-column" aria-label="Conversation">
+          <div class="intro" id="welcome">
+            <h1>Say what <em>happened.</em></h1>
+            <p class="intro-copy">Speak in any Indian language. Nyaya asks what it needs, then shows the source behind every legal claim.</p>
+            <div class="starters" role="group" aria-label="Example questions">
+              <button class="starter" type="button" data-starter="My employer has not paid my wages for three months. What can I do?">Unpaid wages</button>
+              <button class="starter" type="button" data-starter="The police refused to register my FIR. What can I do now?">Police refused an FIR</button>
+              <button class="starter" type="button" data-starter="A cheque I received bounced. What is the next step?">A cheque bounced</button>
+            </div>
+          </div>
+
+          <div class="messages" id="messages" aria-live="polite" aria-label="Messages"></div>
+
+          <div class="composer-wrap">
+            <form class="composer" id="composer" autocomplete="off">
+              <button class="orb" id="micButton" type="button" aria-label="Speak to Nyaya" aria-pressed="false">
+                <span class="orb-pulse" aria-hidden="true"></span>
+                <span class="orb-core" aria-hidden="true"><svg class="icon"><use href="#i-mic"/></svg></span>
+              </button>
+              <textarea id="messageInput" rows="1" placeholder="Speak or type what happened…" aria-label="Describe your situation"></textarea>
+              <button class="send-button" id="sendButton" type="submit" aria-label="Send">
+                <svg class="icon" aria-hidden="true"><use href="#i-send"/></svg>
+              </button>
+            </form>
+
+            <div class="composer-meta">
+              <label class="select-field" title="Leave on Auto. The recogniser identifies each utterance's language, including mixed sentences.">
+                <select id="languageSelect" aria-label="Conversation language">
+                  <option value="auto" selected>Auto · any language</option><option value="en-IN">English</option><option value="hi-IN">हिन्दी</option><option value="bn-IN">বাংলা</option><option value="te-IN">తెలుగు</option><option value="ta-IN">தமிழ்</option><option value="mr-IN">मराठी</option><option value="gu-IN">ગુજરાતી</option><option value="kn-IN">ಕನ್ನಡ</option><option value="ml-IN">മലയാളം</option><option value="pa-IN">ਪੰਜਾਬੀ</option><option value="or-IN">ଓଡ଼ିଆ · text</option><option value="hi-en">Hinglish</option>
+                </select>
+                <svg class="icon chevron" aria-hidden="true"><use href="#i-chevron"/></svg>
+              </label>
+              <label class="select-field" title="Which state's rules apply.">
+                <select id="jurisdictionSelect" aria-label="State or union territory"><option value="auto">State · not set</option></select>
+                <svg class="icon chevron" aria-hidden="true"><use href="#i-chevron"/></svg>
+              </label>
+              <button class="stop-button hidden" id="stopButton" type="button" aria-label="Stop this answer">
+                <svg class="icon" aria-hidden="true"><use href="#i-stop"/></svg><span>Stop</span>
+              </button>
+              <p class="voice-hint" id="voiceHint" aria-live="polite"></p>
+            </div>
+
+            <p class="safety-line">
+              <svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg>
+              <span>AI information, not legal advice.</span>
+              <button class="link-button" id="safetyLink" type="button">How this works</button>
+            </p>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <nav class="mobile-nav" id="mobileNav" aria-label="App sections">
+      <button class="nav-item is-active" type="button" data-nav="talk"><svg class="icon" aria-hidden="true"><use href="#i-mic"/></svg><small>Talk</small></button>
+      <button class="nav-item" type="button" data-nav="guides"><svg class="icon" aria-hidden="true"><use href="#i-layers"/></svg><small>Guides</small></button>
+      <button class="nav-item" type="button" data-nav="saved"><svg class="icon" aria-hidden="true"><use href="#i-bookmark"/></svg><small>Saved</small></button>
+    </nav>
+  </div>
+
+  <div class="sheet-backdrop hidden" id="sheetBackdrop">
+    <section class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
+      <header class="sheet-head">
+        <h2 id="sheetTitle">Guides and sources</h2>
+        <button class="icon-button" id="closeSheet" type="button" aria-label="Close">
+          <svg class="icon" aria-hidden="true"><use href="#i-close"/></svg>
+        </button>
+      </header>
+      <div class="sheet-body" id="sheetBody"></div>
+    </section>
+  </div>
+
+  <div class="modal-backdrop" id="consentModal" role="dialog" aria-modal="true" aria-labelledby="consentTitle">
+    <div class="modal" tabindex="-1">
+      <h2 id="consentTitle">Before you start.</h2>
+      <p class="modal-lead">Nyaya explains Indian law and shows its sources. It is not a lawyer and cannot appear for you.</p>
+      <ul class="consent-points">
+        <li><b>Answers can be wrong.</b> Check anything you plan to rely on.</li>
+        <li><b>This conversation stays here.</b> It is kept on this device for 4 hours, never used for training, and you can delete it at any time.</li>
+        <li><b>A person is contacted only if you ask.</b> They see only the summary you approve.</li>
+      </ul>
+      <label class="check-row"><input type="checkbox" id="consentCheck"><span>I understand and consent to processing what I share.</span></label>
+      <button class="primary-button" id="beginButton" type="button" disabled>Continue</button>
+      <p class="modal-foot">In immediate danger, call 112.</p>
+    </div>
+  </div>
+
+  <div class="modal-backdrop hidden" id="reviewModal" role="dialog" aria-modal="true" aria-labelledby="reviewTitle">
+    <div class="modal" tabindex="-1">
+      <h2 id="reviewTitle">Connect with a person?</h2>
+      <button class="icon-button modal-close" id="closeReview" type="button" aria-label="Close">
+        <svg class="icon" aria-hidden="true"><use href="#i-close"/></svg>
+      </button>
+      <p class="modal-lead">This sends the summary below to the configured review service, in your language.</p>
+      <blockquote class="review-summary" id="reviewSummary"></blockquote>
+      <p class="review-mask-note" id="reviewMaskNote" aria-live="polite"></p>
+      <label class="check-row"><input type="checkbox" id="includeIdentifiers"><span>Include identity or account numbers. Leave unticked to send them masked.</span></label>
+      <label class="check-row"><input type="checkbox" id="shareReview"><span>I choose to request a qualified reviewer and consent to sharing this summary.</span></label>
+      <button class="primary-button" id="confirmReview" type="button" disabled>Request connection <svg class="icon" aria-hidden="true"><use href="#i-send"/></svg></button>
+      <p class="review-result" id="reviewResult" aria-live="polite"></p>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status"></div>
+</body>
+</html>

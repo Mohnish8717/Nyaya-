@@ -1,0 +1,11 @@
+{
+  "note": "Measured on the bundled 2,046-judgment sample corpus. The CI retrieval job fails when hybrid_rerank regresses beyond TOLERANCE on these absolute numbers. Regenerate deliberately, never in the same commit as a code change: python evals/retrieval_eval.py > evals/retrieval_baseline.json after a review of the diff.",
+  "tolerance": 0.1,
+  "cases": 14,
+  "metrics": {
+    "lexical_bm25": { "hit@5": 0.429, "mrr": 0.264 },
+    "dense_only": { "hit@5": 0.429, "mrr": 0.292 },
+    "hybrid_no_rerank": { "hit@5": 0.571, "mrr": 0.327 },
+    "hybrid_rerank": { "hit@5": 0.571, "mrr": 0.375 }
+  }
+}

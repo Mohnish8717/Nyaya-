@@ -1,0 +1,112 @@
+name: ci
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+          cache: pip
+          cache-dependency-path: |
+            requirements.txt
+            requirements-dev.txt
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          # requirements-dev.txt pulls in requirements.txt, so a resolved
+          # environment here also proves the ranges install cleanly.
+          pip install -r requirements-dev.txt
+
+      - name: Unit and API tests
+        # The suite runs without a model or Gnani credentials by design: the
+        # degraded path is a supported mode, not a skipped test.
+        run: python -m pytest -q
+
+      - name: Behavioural evals (grounded mode)
+        # These are the product promises, not function coverage: a safety turn
+        # does no legal analysis, a claim is never emitted without an exact
+        # quote, a stated fact is not re-asked.
+        run: python evals/run_evals.py
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Browser script syntax
+        run: |
+          node --check static/app.js
+          node --check static/voice-logic.js
+
+      - name: Browser speech logic
+        # The speech queue and the spoken-tail calculation, without a browser.
+        run: node --test tests/js
+
+  retrieval:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+          cache: pip
+          cache-dependency-path: |
+            requirements.txt
+            requirements-dev.txt
+            requirements-retrieval.txt
+
+      - name: Install dependencies
+        run: pip install -r requirements-dev.txt -r requirements-retrieval.txt
+
+      - name: Cache the dense encoder
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/fastembed
+            ~/.cache/huggingface
+          key:  dense-${{ runner.os }}-paraphrase-multilingual-MiniLM-L12-v2
+
+      - name: Build the local dense index
+        run: python scripts/build_dense_index.py
+
+      - name: Retrieval quality gate
+        # The evidence stage is the product's core claim, so its quality is
+        # gated, not scheduled: the eval fails when hybrid retrieval regresses
+        # beyond the checked-in baseline (evals/retrieval_baseline.json).
+        run: python evals/retrieval_eval.py --gate
+
+  container:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build the image
+        run: docker build -t legal-assistant:ci .
+      - name: It answers /api/health
+        run: |
+          docker run -d --name app -p 8000:8000 legal-assistant:ci
+          for attempt in $(seq 1 30); do
+            if curl -fsS http://127.0.0.1:8000/api/health > /dev/null; then
+              curl -fsS http://127.0.0.1:8000/api/health | head -c 400
+              exit 0
+            fi
+            sleep 2
+          done
+          echo "health check never became ready"
+          docker logs app
+          exit 1

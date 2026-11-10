@@ -1,0 +1,197 @@
+{
+  "10_8": {
+    "name": "Patna High Court",
+    "jurisdiction": "IN-BR",
+    "benches": [
+      "patnahcucisdb94"
+    ]
+  },
+  "11_24": {
+    "name": "High Court of Sikkim",
+    "jurisdiction": "IN-SK",
+    "benches": [
+      "sikkimhc_pg"
+    ]
+  },
+  "14_25": {
+    "name": "High Court of Manipur",
+    "jurisdiction": "IN-MN",
+    "benches": [
+      "manipurhc_pg"
+    ]
+  },
+  "16_20": {
+    "name": "High Court of Tripura",
+    "jurisdiction": "IN-TR",
+    "benches": [
+      "thcnc"
+    ]
+  },
+  "17_21": {
+    "name": "High Court of Meghalaya",
+    "jurisdiction": "IN-ML",
+    "benches": [
+      "meghalaya"
+    ]
+  },
+  "18_6": {
+    "name": "Gauhati High Court",
+    "jurisdiction": "IN-AS",
+    "benches": [
+      "arghccis",
+      "asghccis",
+      "azghccis",
+      "nlghccis"
+    ]
+  },
+  "19_16": {
+    "name": "Calcutta High Court",
+    "jurisdiction": "IN-WB",
+    "benches": [
+      "calcutta_appellate_side",
+      "calcutta_circuit_bench_at_jalpaiguri",
+      "calcutta_circuit_bench_at_port_blair",
+      "calcutta_original_side"
+    ]
+  },
+  "1_12": {
+    "name": "High Court of Jammu and Kashmir",
+    "jurisdiction": "IN-JK",
+    "benches": [
+      "jammuhc",
+      "kashmirhc"
+    ]
+  },
+  "20_7": {
+    "name": "High Court of Jharkhand",
+    "jurisdiction": "IN-JH",
+    "benches": [
+      "jhar_pg"
+    ]
+  },
+  "21_11": {
+    "name": "High Court of Orissa",
+    "jurisdiction": "IN-OR",
+    "benches": [
+      "cisnc"
+    ]
+  },
+  "22_18": {
+    "name": "High Court of Chhattisgarh",
+    "jurisdiction": "IN-CT",
+    "benches": [
+      "cghccisdb"
+    ]
+  },
+  "23_23": {
+    "name": "High Court of Madhya Pradesh",
+    "jurisdiction": "IN-MP",
+    "benches": [
+      "mphc_db_gwl",
+      "mphc_db_ind",
+      "mphc_db_jbp"
+    ]
+  },
+  "24_17": {
+    "name": "High Court of Gujarat",
+    "jurisdiction": "IN-GJ",
+    "benches": [
+      "gujarathc"
+    ]
+  },
+  "27_1": {
+    "name": "Bombay High Court",
+    "jurisdiction": "IN-MH",
+    "benches": [
+      "hcaurdb",
+      "hcbgoa",
+      "kolhcdb",
+      "newas",
+      "newos",
+      "newos_spl",
+      "testcase"
+    ]
+  },
+  "28_2": {
+    "name": "High Court of Andhra Pradesh",
+    "jurisdiction": "IN-AP",
+    "benches": [
+      "aphc"
+    ]
+  },
+  "29_3": {
+    "name": "High Court of Karnataka",
+    "jurisdiction": "IN-KA",
+    "benches": [
+      "karhcdharwad",
+      "karhckalaburagi",
+      "karnataka_bng_old"
+    ]
+  },
+  "2_5": {
+    "name": "High Court of Himachal Pradesh",
+    "jurisdiction": "IN-HP",
+    "benches": [
+      "cmis"
+    ]
+  },
+  "32_4": {
+    "name": "High Court of Kerala",
+    "jurisdiction": "IN-KL",
+    "benches": [
+      "highcourtofkerala"
+    ]
+  },
+  "33_10": {
+    "name": "Madras High Court",
+    "jurisdiction": "IN-TN",
+    "benches": [
+      "hc_cis_mas",
+      "mdubench"
+    ]
+  },
+  "36_29": {
+    "name": "High Court for State of Telangana",
+    "jurisdiction": "IN-TS",
+    "benches": [
+      "taphc"
+    ]
+  },
+  "3_22": {
+    "name": "High Court of Punjab and Haryana",
+    "jurisdiction": "IN-PB",
+    "benches": [
+      "phhc"
+    ]
+  },
+  "5_15": {
+    "name": "High Court of Uttarakhand",
+    "jurisdiction": "IN-UT",
+    "benches": [
+      "ukhcucis_pg"
+    ]
+  },
+  "7_26": {
+    "name": "High Court of Delhi",
+    "jurisdiction": "IN-DL",
+    "benches": [
+      "dhcdb"
+    ]
+  },
+  "8_9": {
+    "name": "High Court of Rajasthan",
+    "jurisdiction": "IN-RJ",
+    "benches": [
+      "jaipur",
+      "rhcjodh240618"
+    ]
+  },
+  "9_13": {
+    "name": "Allahabad High Court",
+    "jurisdiction": "IN-UP",
+    "benches": [
+      "cisdb_16012018",
+      "cishclko"
+    ]
+  }
+}
