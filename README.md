@@ -1,5 +1,13 @@
 # Nyaya — multilingual, model-led citizen legal advocate
 
+[![Watch the Product Demo](https://img.shields.io/badge/Demo%20Video-Watch%20on%20Loom-5046e5?style=for-the-badge&logo=loom&logoColor=white)](https://www.loom.com/share/02a6e30346c54e5aa8b47b1af5517afa)
+[![GitHub](https://img.shields.io/badge/GitHub-Mohnish8717%2FNyaya--darkgreen?style=for-the-badge&logo=github)](https://github.com/Mohnish8717/Nyaya-)
+
+> 📹 **Live Walkthrough**: [![Watch the demo video](https://cdn.loom.com/sessions/thumbnails/02a6e30346c54e5aa8b47b1af5517afa-with-play.gif)](https://www.loom.com/share/02a6e30346c54e5aa8b47b1af5517afa)  
+> **[Click here to watch the full product demonstration on Loom](https://www.loom.com/share/02a6e30346c54e5aa8b47b1af5517afa)** — showcasing live voice consultation in Telugu and Hindi, real-time RMS energy barge-in, claim-level statutory abstention, and court-grade legal notice PDF generation.
+
+---
+
 This project is a runnable prototype for a voice-first Indian legal-information assistant. A turn is routed before anything is generated: a matched, reviewed **procedure** is answered from a curated file (no model, no invention), a safety turn gets a safety script, and a law question goes to retrieval and an evidence-gated answer. The model writes language, not authority — there is no issue classifier that chooses canned legal replies, no fixed questionnaire, and no mandatory fact-confirmation card. The prompts define scope and evidence rules; they do not contain answer templates.
 
 With no model configured the app still works: it shows retrieved passages with their exact source, and says plainly that it has not drawn a legal conclusion. That degraded mode is a deliberate design choice, not a fallback accident. The sentences it says in that mode — the acknowledgement, the safety script and the "I could not verify this" / "no model is connected" replies — are written for each of the ten served languages and Hinglish, so a Telugu caller is not answered in English at the one moment the app has least to offer.
