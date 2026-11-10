@@ -185,3 +185,4 @@
 2. **Audio Setup**: If recording live microphone input, ensure your speaker audio doesn't loop back into the microphone. Using headphones is strongly recommended.
 3. **If You Prefer Not to Speak Hindi/Telugu Live**: You can click the language chip or paste a pre-prepared regional sentence into the input bar — the STT auto-detection and speech synthesis will still demonstrate the multilingual capability flawlessly.
 4. **Resolution**: Record at 1080p (1920x1080) for sharp text rendering of legal clauses and terminal outputs.
+

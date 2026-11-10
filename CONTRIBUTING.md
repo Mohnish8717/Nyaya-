@@ -57,3 +57,4 @@ node --check static/app.js && node --test tests/js
 - Latency budgets live in `tests/test_latency.py`; turn budgets in `app/legal_engine.py`.
 - Keep documentation up to date: `README.md`, `docs/architecture.md`, `DESIGN.md`, and this file are the standing source of truth.
 - `requirements.txt` tracks abstract dependency ranges; `requirements.lock` tracks exact resolved deployment floors.
+
